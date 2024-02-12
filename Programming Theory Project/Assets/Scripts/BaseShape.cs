@@ -15,6 +15,7 @@ public abstract class BaseShape : MonoBehaviour
     [SerializeField] private Color sColor;
     [SerializeField] private Color cColor;
 
+    // ENCAPSULATION
     protected Color shapeColor
     {
         get
@@ -28,6 +29,7 @@ public abstract class BaseShape : MonoBehaviour
         }
     }
 
+    // ENCAPSULATION
     protected Color clickedColor
     {
         get
@@ -49,7 +51,7 @@ public abstract class BaseShape : MonoBehaviour
         text.gameObject.SetActive(false);
         text.text = "";
     }
-
+    // INHERITANCE
     void OnMouseDown()
     {
         Debug.Log("Клик по объекту: " + name + ", класс: " + 
@@ -62,6 +64,7 @@ public abstract class BaseShape : MonoBehaviour
         StartCoroutine(EnableText(1, displayText, clickedColor));
     }
 
+    // INHERITANCE
     protected virtual IEnumerator EnableText(float time, string newText, Color newShapeColor)
     {
         TransformObject(newText, newShapeColor);
@@ -75,7 +78,7 @@ public abstract class BaseShape : MonoBehaviour
         text.gameObject.SetActive(true);
         meshRenderer.material.color = newColor;
     }
-    
+    // ABSTRACTION
     private void ReturnDefault()
     {
         text.gameObject.SetActive(false);
